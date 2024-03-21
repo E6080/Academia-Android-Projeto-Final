@@ -45,4 +45,16 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+//    //Glide
+//    implementation("com.github.bumptech.glide:glide:4.11.0")
+//    annotationProcessor("com.github.bumptech.glide:compiler:4.11.0")
+//
+//    //Retrofit
+//
+//    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+//    implementation ("com.squareup.retrofit2:converter-name:2.9.0")
+//
+//    //voley
+//    implementation ("com.android.volley:volley:1.1.1")
 }
