@@ -1,6 +1,7 @@
 package com.example.academia_android_projeto_final;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -30,16 +31,25 @@ public class PokemonAdapter extends RecyclerView.Adapter<PokemonAdapter.ViewHold
         pokemons = list;
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder
+    public static class ViewHolder extends RecyclerView.ViewHolder
     {
 
         TextView tvPokemonName;
         ImageView imagePokemon;
 
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             imagePokemon = itemView.findViewById(R.id.ivPokemonImage);
             tvPokemonName = itemView.findViewById(R.id.tvPokemonName);
+
+            imagePokemon.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(v.getContext(), AboutPokemonActivity.class);
+                    v.getContext().startActivity(intent);
+                }
+            });
         }
     }
     @NonNull
