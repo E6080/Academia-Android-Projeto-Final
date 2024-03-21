@@ -41,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
 
         myAdapter = new PokemonAdapter(this,pokemons);
         recyclerView.setAdapter(myAdapter);
-//        pokemons.add(new Pokemon("Balbasaur","grass","poison",130,130));
 
         apiInterface = APIClient.getClient().create(RetrofitAPICall.class);
 
@@ -51,14 +50,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<APIResponse> call, Response<APIResponse> response) {
 
-                Log.println(Log.DEBUG,"TAG","Entrou");
-
                 APIResponse data = response.body();
 
                 if (data != null)
                 {
-                    Log.println(Log.DEBUG,"TAG","Entrou");
-
                     for (int i = 0 ; i < data.resultDataList.size(); i++)
                     {
                         pokemons.add(new Pokemon(data.resultDataList.get(i).name,"grass","poison",130,130));
@@ -68,7 +63,6 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else
                 {
-                    Log.println(Log.ERROR,"TAG","Entrou");
                     call.cancel();
                 }
             }
