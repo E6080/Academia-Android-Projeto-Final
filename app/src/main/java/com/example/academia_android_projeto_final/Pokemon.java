@@ -9,14 +9,18 @@ public class Pokemon {
     private String type2;
     private int weight;
     private int height;
-    //private ArrayList<String> moves;
+    private ArrayList<String> moves;
 
-    public Pokemon(String name, String type1, String type2, int weight, int height) {
+    public Pokemon(String name) {
         this.name = name;
-        this.type1 = type1;
-        this.type2 = type2;
-        this.weight = weight;
-        this.height = height;
+    }
+
+    public ArrayList<String> getMoves() {
+        return moves;
+    }
+
+    public void setMoves(ArrayList<String> moves) {
+        this.moves = moves;
     }
 
     public String getName() {

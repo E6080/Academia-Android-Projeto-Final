@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Academia_Android_Projeto_Final</string>
+    <string name="weight">Weight</string>
+    <string name="moves">Moves</string>
+    <string name="height">Height</string>
 </resources>

@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class APIResponse
+public class PokemonListResponse
 {
     @SerializedName("count")
     public int count;

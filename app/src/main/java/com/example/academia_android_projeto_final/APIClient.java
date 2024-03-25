@@ -14,7 +14,6 @@ public class APIClient
                 .baseUrl("https://pokeapi.co/api/v2/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
-
     }
 
 }
