@@ -68,9 +68,8 @@
                         android:id="@+id/weight"
                         android:layout_marginStart="10dp"
                         android:textSize="20sp"
-                        android:text="WEIGHT"
                         android:textStyle="bold"
-
+                        android:textColor="@color/black"
                         android:layout_marginTop="20dp"
                         android:layout_marginEnd="20dp"
                         android:layout_width="wrap_content"
@@ -122,7 +121,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:padding="5dp"
-                        android:text="TYPE"
+                        android:text="@string/type"
                         android:textSize="14sp" />
 
                 </LinearLayout>
@@ -138,10 +137,10 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="end"
                         android:id="@+id/height"
-                        android:text="HEIGHT"
                         android:layout_marginEnd="10dp"
                         android:textStyle="bold"
                         android:layout_marginTop="20dp"
+                        android:textColor="@color/black"
                         android:textSize="20sp">
                     </TextView>
 
@@ -170,6 +169,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
                     android:text="@string/moves"
+                    android:textColor="@color/black"
                     android:textStyle="bold"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="20dp"
@@ -177,10 +177,11 @@
                 </TextView>
 
 
-                <androidx.recyclerview.widget.RecyclerView
+                <ListView
                     android:layout_marginTop="5dp"
                     android:layout_marginStart="15dp"
                     android:layout_marginEnd="15dp"
+                    android:padding="16dp"
                     android:background="@color/gray_background"
                     android:id="@+id/list"
                     android:layout_width="match_parent"

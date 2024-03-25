@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">Academia_Android_Projeto_Final</string>
     <string name="weight">Weight</string>
+    <string name="moves">Moves</string>
+    <string name="height">Height</string>
+    <string name="height_format">%sm</string>
+    <string name="weight_format">%skg</string>
+
 </resources>
