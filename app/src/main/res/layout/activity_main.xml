@@ -7,16 +7,17 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity"
-    android:background="@color/main_backgroud"
+    android:background="@color/main_background_list"
     >
 
-    <EditText
+    <SearchView
         android:id="@+id/editTextText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="text"
-        android:text="Name" />
+        android:queryHint="Pesquisar"
+        android:titleTextColor="@color/black" />
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -28,7 +29,8 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_view"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            />
     </FrameLayout>
 
 </LinearLayout>

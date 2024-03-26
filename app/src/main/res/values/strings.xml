@@ -6,5 +6,6 @@
     <string name="height_format">%sm</string>
     <string name="weight_format">%skg</string>
     <string name="type">TYPE</string>
+    <string name="pokemon_name">Pokemon name</string>
 
 </resources>

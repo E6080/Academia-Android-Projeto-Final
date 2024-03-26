@@ -6,6 +6,9 @@ import java.util.List;
 
 public class AboutPokemonResponse {
 
+    @SerializedName("name")
+    public String name;
+
     @SerializedName("height")
     public String height;
 
@@ -16,7 +19,7 @@ public class AboutPokemonResponse {
     public List<Move> moves;
 
     @SerializedName("types")
-    public List<Move> types;
+    public List<Type> types;
 
 
 
@@ -28,6 +31,16 @@ public class AboutPokemonResponse {
     public class Move {
         @SerializedName("move")
         public MoveDetails moveDetails;
+    }
+
+    public class TypeDetails {
+        @SerializedName("name")
+        public String name;
+    }
+
+    public class Type {
+        @SerializedName("type")
+        public TypeDetails typeDetails;
     }
 }
 

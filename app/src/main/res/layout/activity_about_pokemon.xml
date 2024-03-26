@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/main_backgroud"
+    android:background="@color/main_background_details"
     tools:context=".AboutPokemonActivity">
 
     <ImageView
@@ -47,14 +47,14 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
                 android:layout_marginTop="10dp"
-                android:text="Pokemon name"
+                android:text="@string/pokemon_name"
                 android:textStyle="bold"
                 android:gravity="center"
                 android:textSize="30sp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="70dp"
                 android:orientation="horizontal"
                 android:layout_marginTop="10dp">
                 
@@ -98,18 +98,17 @@
                         <ImageView
                             android:id="@+id/ivType1"
                             android:padding="5dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/fav_star_icon"
+                            android:layout_width="10dp"
+                            android:layout_height="50dp"
                             android:layout_gravity="center_vertical"
                             android:layout_weight="1">
                         </ImageView>
 
                         <ImageView
                             android:id="@+id/ivType2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/fav_star_icon"
+                            android:layout_width="10dp"
+                            android:layout_height="50dp"
+                            android:visibility="gone"
                             android:layout_gravity="center_vertical"
                             android:layout_weight="1"
                             android:padding="5dp">
@@ -120,7 +119,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:padding="5dp"
                         android:text="@string/type"
                         android:textSize="14sp" />
 
@@ -162,7 +160,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:background="@drawable/rounded_corners">
 
                 <TextView
                     android:layout_width="match_parent"

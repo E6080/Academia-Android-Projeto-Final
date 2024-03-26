@@ -18,6 +18,7 @@ import androidx.core.view.WindowInsetsCompat;
 import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import retrofit2.Call;
@@ -26,12 +27,13 @@ import retrofit2.Response;
 
 public class AboutPokemonActivity extends AppCompatActivity {
 
-    ImageView pokemonImage, favoriteIcon;
-    TextView tvWeight, tvHeight;
+    ImageView pokemonImage, favoriteIcon , ivType1, ivType2;
+    TextView tvWeight, tvHeight, tvPokeName;
     ListView listView;
 
     RetrofitAPICall apiInterface;
 
+    HashMap<String, Integer> typeToIcon = new HashMap<>();
     List<String> moves = new ArrayList<>();
     ArrayAdapter<String> adapter;
 
@@ -42,9 +44,29 @@ public class AboutPokemonActivity extends AppCompatActivity {
 
         pokemonImage = findViewById(R.id.ivPokemonImage);
         favoriteIcon = findViewById(R.id.ivFav);
+        ivType2 = findViewById(R.id.ivType2);
+        ivType1 = findViewById(R.id.ivType1);
         listView = findViewById(R.id.list);
         tvHeight = findViewById(R.id.height);
         tvWeight = findViewById(R.id.weight);
+        tvPokeName = findViewById(R.id.pokemonName);
+
+        typeToIcon.put("normal",R.drawable.normal_type_icon);
+        typeToIcon.put("grass",R.drawable.grass_type_icon);
+        typeToIcon.put("poison",R.drawable.poison_type_icon);
+        typeToIcon.put("fire",R.drawable.fire_type_icon);
+        typeToIcon.put("water",R.drawable.water_type_icon);
+        typeToIcon.put("eletric",R.drawable.electric_type_icon);
+        typeToIcon.put("ice",R.drawable.ice_type_icon);
+        typeToIcon.put("fighting",R.drawable.fighting_type_icon);
+        typeToIcon.put("ground",R.drawable.ground_type_icon);
+        typeToIcon.put("flying",R.drawable.flying_type_icon);
+        typeToIcon.put("psychic",R.drawable.psychic_type_icon);
+        typeToIcon.put("bug",R.drawable.bug_type_icon);
+        typeToIcon.put("rock",R.drawable.rock_type_icon);
+        typeToIcon.put("ghost",R.drawable.ghost_type_icon);
+        typeToIcon.put("dragon",R.drawable.dragon_type_icon);
+        typeToIcon.put("fairy",R.drawable.fairy_type_icon);
 
         Intent intent = getIntent();
 
@@ -83,9 +105,26 @@ public class AboutPokemonActivity extends AppCompatActivity {
                 }
 
                 listView.setAdapter(adapter);
-
+                tvPokeName.setText(response.body().name);
                 tvHeight.setText(getString(R.string.height_format, response.body().height));
                 tvWeight.setText(getString(R.string.weight_format, response.body().weight));
+
+                if (!response.body().types.isEmpty()) {
+                    String type = response.body().types.get(0).typeDetails.name;
+
+                    if (typeToIcon.containsKey(type) && typeToIcon.get(type) != null) {
+                        ivType1.setImageResource(typeToIcon.get(type));
+                    }
+                }
+
+                if (response.body().types.size() > 1) {
+                    String type = response.body().types.get(1).typeDetails.name;
+                    ivType2.setVisibility(View.VISIBLE);
+                    if (typeToIcon.containsKey(type) && typeToIcon.get(type) != null) {
+                        ivType2.setImageResource(typeToIcon.get(type));
+                    }
+                }
+
             }
 
             @Override
