@@ -24,9 +24,9 @@ import java.util.ArrayList;
 
 public class PokemonAdapter extends RecyclerView.Adapter<PokemonAdapter.ViewHolder> {
 
-    private ArrayList<Pokemon> pokemons;
+    private static ArrayList<String> pokemons;
 
-    public PokemonAdapter(Context context, ArrayList<Pokemon> list)
+    public PokemonAdapter(Context context, ArrayList<String> list)
     {
         pokemons = list;
     }
@@ -48,6 +48,7 @@ public class PokemonAdapter extends RecyclerView.Adapter<PokemonAdapter.ViewHold
                 public void onClick(View v) {
                     Intent intent = new Intent(v.getContext(), AboutPokemonActivity.class);
                     intent.putExtra("Index",getAdapterPosition());
+                    intent.putExtra("Name",pokemons.get(getAdapterPosition()));
                     v.getContext().startActivity(intent);
                 }
             });
@@ -69,7 +70,7 @@ public class PokemonAdapter extends RecyclerView.Adapter<PokemonAdapter.ViewHold
                 .load("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"+(position+1)+".png")
                 .override(400,360)
                 .into(holder.imagePokemon);
-        holder.tvPokemonName.setText(pokemons.get(position).getName());
+        holder.tvPokemonName.setText(pokemons.get(position));
     }
 
 

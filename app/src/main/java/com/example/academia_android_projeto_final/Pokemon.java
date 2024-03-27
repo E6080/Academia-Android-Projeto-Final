@@ -1,6 +1,9 @@
 package com.example.academia_android_projeto_final;
 
+import androidx.room.Entity;
+
 import java.util.ArrayList;
+
 
 public class Pokemon {
 

@@ -1,6 +1,7 @@
 package com.example.academia_android_projeto_final;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -9,11 +10,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.bumptech.glide.Glide;
 
@@ -26,6 +23,8 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class AboutPokemonActivity extends AppCompatActivity {
+
+    public static final String PREFERENCES_FILENAME = "com.example.academia_android_projeto_final.Favourites";
 
     ImageView pokemonImage, favoriteIcon , ivType1, ivType2;
     TextView tvWeight, tvHeight, tvPokeName;
@@ -42,6 +41,9 @@ public class AboutPokemonActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about_pokemon);
 
+        SharedPreferences preferences = getSharedPreferences(PREFERENCES_FILENAME, MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+
         pokemonImage = findViewById(R.id.ivPokemonImage);
         favoriteIcon = findViewById(R.id.ivFav);
         ivType2 = findViewById(R.id.ivType2);
@@ -56,7 +58,7 @@ public class AboutPokemonActivity extends AppCompatActivity {
         typeToIcon.put("poison",R.drawable.poison_type_icon);
         typeToIcon.put("fire",R.drawable.fire_type_icon);
         typeToIcon.put("water",R.drawable.water_type_icon);
-        typeToIcon.put("eletric",R.drawable.electric_type_icon);
+        typeToIcon.put("electric",R.drawable.electric_type_icon);
         typeToIcon.put("ice",R.drawable.ice_type_icon);
         typeToIcon.put("fighting",R.drawable.fighting_type_icon);
         typeToIcon.put("ground",R.drawable.ground_type_icon);
@@ -71,11 +73,29 @@ public class AboutPokemonActivity extends AppCompatActivity {
         Intent intent = getIntent();
 
         int index = intent.getIntExtra("Index",0);
+        String pokemonName = intent.getStringExtra("Name");
+
+        if (preferences.contains(pokemonName)) {
+            favoriteIcon.setImageResource(R.drawable.fav_star_filled_icon);
+        }
+        else {
+            favoriteIcon.setImageResource(R.drawable.fav_star_icon);
+        }
 
         favoriteIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                favoriteIcon.setImageResource(R.drawable.fav_star_filled_icon);
+
+                if (preferences.contains(pokemonName)) {
+                    favoriteIcon.setImageResource(R.drawable.fav_star_icon);
+                    editor.remove(pokemonName);
+                }
+                else {
+                    favoriteIcon.setImageResource(R.drawable.fav_star_filled_icon);
+                    editor.putInt(pokemonName,index+1);
+                }
+
+                editor.apply();
             }
         });
 
@@ -88,12 +108,10 @@ public class AboutPokemonActivity extends AppCompatActivity {
 
         apiInterface = APIClient.getClient().create(RetrofitAPICall.class);
         Call<AboutPokemonResponse> call = apiInterface.getDetails(""+(index+1));
-        adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1 ,moves);
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, moves);
         call.enqueue(new Callback<AboutPokemonResponse>() {
             @Override
             public void onResponse(Call<AboutPokemonResponse> call, Response<AboutPokemonResponse> response) {
-
-                Log.d("TAG", "ENTROU");
 
                 if (response.body() == null) {
                     Log.println(Log.ERROR,"error","Body null");
@@ -104,8 +122,9 @@ public class AboutPokemonActivity extends AppCompatActivity {
                     moves.add(response.body().moves.get(i).moveDetails.name);
                 }
 
+
                 listView.setAdapter(adapter);
-                tvPokeName.setText(response.body().name);
+                tvPokeName.setText(pokemonName);
                 tvHeight.setText(getString(R.string.height_format, response.body().height));
                 tvWeight.setText(getString(R.string.weight_format, response.body().weight));
 
@@ -120,6 +139,7 @@ public class AboutPokemonActivity extends AppCompatActivity {
                 if (response.body().types.size() > 1) {
                     String type = response.body().types.get(1).typeDetails.name;
                     ivType2.setVisibility(View.VISIBLE);
+
                     if (typeToIcon.containsKey(type) && typeToIcon.get(type) != null) {
                         ivType2.setImageResource(typeToIcon.get(type));
                     }

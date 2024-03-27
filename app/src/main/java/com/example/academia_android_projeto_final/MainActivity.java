@@ -16,12 +16,14 @@ import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static final String PREFERENCES_FILENAME = "com.example.academia_android_projeto_final.Favourites";
+
     RecyclerView recyclerView;
-    ImageView imageView;
     RecyclerView.Adapter myAdapter;
     RecyclerView.LayoutManager layoutManager;
     RetrofitAPICall apiInterface;
-    ArrayList<Pokemon> pokemons;
+    ArrayList<String> pokemons;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +55,9 @@ public class MainActivity extends AppCompatActivity {
                 {
                     for (int i = 0 ; i < data.resultDataList.size(); i++)
                     {
-                        pokemons.add(new Pokemon(data.resultDataList.get(i).name));
+                        String name = data.resultDataList.get(i).name;
+                        String capitalizedName = name.substring(0, 1).toUpperCase() + name.substring(1);
+                        pokemons.add(capitalizedName);
                         myAdapter.notifyItemInserted(i);
                     }
 
