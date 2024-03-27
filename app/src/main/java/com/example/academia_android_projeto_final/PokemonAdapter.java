@@ -24,9 +24,9 @@ import java.util.ArrayList;
 
 public class PokemonAdapter extends RecyclerView.Adapter<PokemonAdapter.ViewHolder> {
 
-    private static ArrayList<String> pokemons;
+    private static ArrayList<Pokemon> pokemons;
 
-    public PokemonAdapter(Context context, ArrayList<String> list)
+    public PokemonAdapter(Context context, ArrayList<Pokemon> list)
     {
         pokemons = list;
     }
@@ -43,14 +43,11 @@ public class PokemonAdapter extends RecyclerView.Adapter<PokemonAdapter.ViewHold
             imagePokemon = itemView.findViewById(R.id.ivPokemonImage);
             tvPokemonName = itemView.findViewById(R.id.tvPokemonName);
 
-            imagePokemon.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(v.getContext(), AboutPokemonActivity.class);
-                    intent.putExtra("Index",getAdapterPosition());
-                    intent.putExtra("Name",pokemons.get(getAdapterPosition()));
-                    v.getContext().startActivity(intent);
-                }
+            imagePokemon.setOnClickListener(v -> {
+                Intent intent = new Intent(v.getContext(), AboutPokemonActivity.class);
+                intent.putExtra("Index",pokemons.get(getAdapterPosition()).getId());
+                intent.putExtra("Name",pokemons.get(getAdapterPosition()).getName());
+                v.getContext().startActivity(intent);
             });
         }
     }
@@ -67,10 +64,10 @@ public class PokemonAdapter extends RecyclerView.Adapter<PokemonAdapter.ViewHold
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.itemView.setTag(pokemons.get(position));
         Glide.with(holder.itemView)
-                .load("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"+(position+1)+".png")
+                .load("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"+pokemons.get(position).getId()+".png")
                 .override(400,360)
                 .into(holder.imagePokemon);
-        holder.tvPokemonName.setText(pokemons.get(position));
+        holder.tvPokemonName.setText(pokemons.get(position).getName());
     }
 
 

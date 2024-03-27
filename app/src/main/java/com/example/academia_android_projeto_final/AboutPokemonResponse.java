@@ -12,6 +12,9 @@ public class AboutPokemonResponse {
     @SerializedName("height")
     public String height;
 
+    @SerializedName("id")
+    public String id;
+
     @SerializedName("weight")
     public String weight;
 

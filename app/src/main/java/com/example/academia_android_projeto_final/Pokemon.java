@@ -8,14 +8,20 @@ import java.util.ArrayList;
 public class Pokemon {
 
     private String name;
+    private int id;
     private String type1;
     private String type2;
     private int weight;
     private int height;
     private ArrayList<String> moves;
 
-    public Pokemon(String name) {
+    public Pokemon(String name,int id) {
         this.name = name;
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public ArrayList<String> getMoves() {

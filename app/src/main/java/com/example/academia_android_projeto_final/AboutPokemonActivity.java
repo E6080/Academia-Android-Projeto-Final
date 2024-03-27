@@ -17,6 +17,7 @@ import com.bumptech.glide.Glide;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -92,7 +93,7 @@ public class AboutPokemonActivity extends AppCompatActivity {
                 }
                 else {
                     favoriteIcon.setImageResource(R.drawable.fav_star_filled_icon);
-                    editor.putInt(pokemonName,index+1);
+                    editor.putInt(pokemonName,index);
                 }
 
                 editor.apply();
@@ -100,14 +101,14 @@ public class AboutPokemonActivity extends AppCompatActivity {
         });
 
 
-        Glide.with(this)
-                .load("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"+(index+1)+".png")
-                .override(600,600)
-                .into(pokemonImage);
-
 
         apiInterface = APIClient.getClient().create(RetrofitAPICall.class);
-        Call<AboutPokemonResponse> call = apiInterface.getDetails(""+(index+1));
+
+        if (pokemonName == null) {
+            throw new RuntimeException("pokemonName was null");
+        }
+
+        Call<AboutPokemonResponse> call = apiInterface.getDetails(pokemonName.toLowerCase());
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, moves);
         call.enqueue(new Callback<AboutPokemonResponse>() {
             @Override
@@ -117,6 +118,11 @@ public class AboutPokemonActivity extends AppCompatActivity {
                     Log.println(Log.ERROR,"error","Body null");
                     call.cancel();
                 }
+
+                Glide.with(pokemonImage.getContext())
+                        .load("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"+response.body().id+".png")
+                        .override(600,600)
+                        .into(pokemonImage);
 
                 for (int i = 0; i < response.body().moves.size() ; i++) {
                     moves.add(response.body().moves.get(i).moveDetails.name);
