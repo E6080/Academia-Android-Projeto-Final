@@ -14,7 +14,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -24,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
     public static final String PREFERENCES_FILENAME = "com.example.academia_android_projeto_final.Favourites";
 
-    Button btnFavourites;
+    ImageView btnFavourites, home;
     RecyclerView recyclerView;
     RecyclerView.Adapter myAdapter;
     RecyclerView.Adapter favouriteAdapter;
@@ -44,7 +46,8 @@ public class MainActivity extends AppCompatActivity {
         pokemons = new ArrayList<>();
         favourites = new ArrayList<>();
 
-        btnFavourites = findViewById(R.id.btnFav);
+        btnFavourites = findViewById(R.id.favFilter);
+        home = findViewById(R.id.ivHome);
 
         recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
@@ -95,12 +98,29 @@ public class MainActivity extends AppCompatActivity {
 
         btnFavourites.setOnClickListener(v -> {
 
-            for (Map.Entry<String, ?> key:preferences.getAll().entrySet()) {
-                favourites.add(new Pokemon(key.getKey(), (int) key.getValue()));
+            Set<String> existingFavorites = new HashSet<>();
+
+            for (Pokemon pokemon : favourites)
+            {
+                existingFavorites.add(pokemon.getName());
             }
+
+            for (Map.Entry<String, ?> key:preferences.getAll().entrySet())
+            {
+                if (!existingFavorites.contains(key.getKey()))
+                {
+                    favourites.add(new Pokemon(key.getKey(), (int) key.getValue()));
+                }
+            }
+
             favouriteAdapter = new PokemonAdapter(v.getContext(),favourites);
             recyclerView.setAdapter(favouriteAdapter);
+        });
 
+        home.setOnClickListener(v ->
+        {
+            RecyclerView.Adapter helper = new PokemonAdapter(v.getContext(),pokemons);
+            recyclerView.setAdapter(helper);
         });
 
 

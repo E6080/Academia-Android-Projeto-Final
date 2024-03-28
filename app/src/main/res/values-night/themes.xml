@@ -2,6 +2,6 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.Academia_Android_Projeto_Final" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <item name="colorPrimary">@color/theme_color</item>
     </style>
 </resources>

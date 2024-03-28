@@ -7,5 +7,6 @@
     <string name="weight_format">%skg</string>
     <string name="type">TYPE</string>
     <string name="pokemon_name">Pokemon name</string>
+    <string name="filters_by_favourites">Filters by favourites</string>
 
 </resources>

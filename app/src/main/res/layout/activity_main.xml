@@ -10,22 +10,33 @@
     android:background="@color/main_background_list"
     >
 
-    <SearchView
+    <Toolbar
         android:id="@+id/editTextText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="text"
-        android:queryHint="Pesquisar"
-        android:titleTextColor="@color/black" />
+        android:titleTextColor="@color/black">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/btnFav"
-        android:text="Favourites">
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:id="@+id/favFilter"
+            android:src="@drawable/fav_star_filled_icon_black"
+            android:layout_gravity="end"
+            android:contentDescription="@string/filters_by_favourites">
+        </ImageView>
 
-    </Button>
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:id="@+id/ivHome"
+            android:src="@drawable/home_ifilled_icon"
+            android:layout_gravity="end"
+            >
+        </ImageView>
+
+    </Toolbar>
+
 
     <FrameLayout
         android:layout_width="match_parent"
