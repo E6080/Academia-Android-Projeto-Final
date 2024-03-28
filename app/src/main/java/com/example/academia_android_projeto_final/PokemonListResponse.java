@@ -22,6 +22,10 @@ public class PokemonListResponse
 
     public static class ResultData
     {
+        public ResultData(String name) {
+            this.name = name;
+        }
+
         @SerializedName("name")
         public String name;
         @SerializedName("url")

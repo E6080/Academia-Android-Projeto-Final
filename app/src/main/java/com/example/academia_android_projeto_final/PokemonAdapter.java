@@ -75,4 +75,8 @@ public class PokemonAdapter extends RecyclerView.Adapter<PokemonAdapter.ViewHold
     public int getItemCount() {
         return pokemons.size();
     }
+
+    public ArrayList<Pokemon> getPokemons() {
+        return pokemons;
+    }
 }

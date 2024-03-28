@@ -37,7 +37,6 @@ android {
 
 dependencies {
 
-    implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.activity)
@@ -57,5 +56,11 @@ dependencies {
     //Room
     implementation ("androidx.room:room-ktx:2.6.1")
     androidTestImplementation("androidx.room:room-testing:2.6.1")
+
+    //Tests
+    testImplementation("androidx.test:core-ktx:1.5.0")
+    testImplementation ("org.mockito:mockito-core:2.25.0")
+    testImplementation ("org.mockito:mockito-inline:2.13.0")
+    androidTestImplementation (libs.androidx.core)
 
 }
