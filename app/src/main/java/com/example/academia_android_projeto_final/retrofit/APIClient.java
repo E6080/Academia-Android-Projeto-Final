@@ -1,4 +1,4 @@
-package com.example.academia_android_projeto_final;
+package com.example.academia_android_projeto_final.retrofit;
 
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
@@ -8,7 +8,7 @@ public class APIClient
 {
     private static final Retrofit retrofit = null;
 
-    static Retrofit getClient() {
+    public static Retrofit getClient() {
 
         return new Retrofit.Builder()
                 .baseUrl("https://pokeapi.co/api/v2/")

@@ -44,6 +44,8 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    androidTestImplementation("androidx.test.espresso:espresso-contrib:3.4.0")
+    androidTestImplementation ("androidx.test:runner:1.4.0")
 
     //Glide
     implementation("com.github.bumptech.glide:glide:4.11.0")

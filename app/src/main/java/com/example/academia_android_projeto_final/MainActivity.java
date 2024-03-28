@@ -1,19 +1,20 @@
 package com.example.academia_android_projeto_final;
 
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.academia_android_projeto_final.retrofit.APIClient;
+import com.example.academia_android_projeto_final.retrofit.PokemonListResponse;
+import com.example.academia_android_projeto_final.retrofit.RetrofitAPICall;
+
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
@@ -65,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
 
         call.enqueue(new Callback<PokemonListResponse>() {
             @Override
-            public void onResponse(Call<PokemonListResponse> call, Response<PokemonListResponse> response) {
+            public void onResponse(@NonNull Call<PokemonListResponse> call, @NonNull Response<PokemonListResponse> response) {
 
                 PokemonListResponse data = response.body();
 
@@ -74,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
                     for (int i = 0 ; i < data.resultDataList.size(); i++)
                     {
                         String name = data.resultDataList.get(i).name;
-                        String capitalizedName = name.substring(0, 1).toUpperCase() + name.substring(1);
+                        String capitalizedName = capitalizeFirstLetter(name);
                         int id = i+1;
                         pokemons.add(new Pokemon(capitalizedName,id));
                         myAdapter.notifyItemInserted(i);
@@ -88,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<PokemonListResponse> call, Throwable t) {
+            public void onFailure(@NonNull Call<PokemonListResponse> call, @NonNull Throwable t) {
                 Log.println(Log.ERROR,"error","Falhou no pedido");
                 call.cancel();
             }
@@ -124,5 +125,9 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+    }
+
+    public String capitalizeFirstLetter(String name) {
+        return name.substring(0, 1).toUpperCase() + name.substring(1);
     }
 }

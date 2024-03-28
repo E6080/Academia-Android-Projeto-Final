@@ -10,7 +10,7 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 
-public class MainActivityUnitTest {
+public class PokemonAdapterTest {
 
     private PokemonAdapter adapter;
     private Context mockContext;

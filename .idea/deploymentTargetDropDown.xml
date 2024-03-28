@@ -2,7 +2,22 @@
 <project version="4">
   <component name="deploymentTargetDropDown">
     <value>
+      <entry key="AppUITest">
+        <State />
+      </entry>
+      <entry key="ExampleInstrumentedTest">
+        <State />
+      </entry>
+      <entry key="MainActivity">
+        <State />
+      </entry>
       <entry key="app">
+        <State />
+      </entry>
+      <entry key="testOpenPokemonDetails()">
+        <State />
+      </entry>
+      <entry key="useAppContext()">
         <State />
       </entry>
     </value>

@@ -10,14 +10,17 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
+import com.example.academia_android_projeto_final.retrofit.APIClient;
+import com.example.academia_android_projeto_final.retrofit.AboutPokemonResponse;
+import com.example.academia_android_projeto_final.retrofit.RetrofitAPICall;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Locale;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -112,7 +115,7 @@ public class AboutPokemonActivity extends AppCompatActivity {
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, moves);
         call.enqueue(new Callback<AboutPokemonResponse>() {
             @Override
-            public void onResponse(Call<AboutPokemonResponse> call, Response<AboutPokemonResponse> response) {
+            public void onResponse(@NonNull Call<AboutPokemonResponse> call, @NonNull Response<AboutPokemonResponse> response) {
 
                 if (response.body() == null) {
                     Log.println(Log.ERROR,"error","Body null");
