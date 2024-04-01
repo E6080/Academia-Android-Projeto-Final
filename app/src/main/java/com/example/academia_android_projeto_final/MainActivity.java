@@ -2,15 +2,13 @@ package com.example.academia_android_projeto_final;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.academia_android_projeto_final.models.Pokemon;
 import com.example.academia_android_projeto_final.retrofit.APIClient;
 import com.example.academia_android_projeto_final.retrofit.RetrofitAPICall;
 

@@ -1,9 +1,7 @@
-package com.example.academia_android_projeto_final;
+package com.example.academia_android_projeto_final.adapters;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,14 +9,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.DataSource;
-import com.bumptech.glide.load.engine.GlideException;
-import com.bumptech.glide.request.RequestListener;
-import com.bumptech.glide.request.target.Target;
+import com.example.academia_android_projeto_final.AboutPokemonActivity;
+import com.example.academia_android_projeto_final.models.Pokemon;
+import com.example.academia_android_projeto_final.R;
 
 import java.util.ArrayList;
 

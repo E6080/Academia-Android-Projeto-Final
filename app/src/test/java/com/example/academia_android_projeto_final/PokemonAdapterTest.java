@@ -5,6 +5,9 @@ import static org.junit.Assert.assertNotNull;
 
 import android.content.Context;
 
+import com.example.academia_android_projeto_final.adapters.PokemonAdapter;
+import com.example.academia_android_projeto_final.models.Pokemon;
+
 import org.junit.Before;
 import org.junit.Test;
 

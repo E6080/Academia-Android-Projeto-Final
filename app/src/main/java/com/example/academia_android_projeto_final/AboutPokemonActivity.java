@@ -33,14 +33,7 @@ public class AboutPokemonActivity extends AppCompatActivity {
 
     public static final String PREFERENCES_FILENAME = "com.example.academia_android_projeto_final.Favourites";
 
-    ImageView pokemonImage, favoriteIcon , ivType1, ivType2;
-    TextView tvWeight, tvHeight, tvPokeName;
-    ListView listView;
-
-    RetrofitAPICall apiInterface;
-
-    List<String> moves = new ArrayList<>();
-    ArrayAdapter<String> adapter;
+    ImageView pokemonImage, favoriteIcon;
     String pokemonName;
 
     @Override
@@ -87,8 +80,6 @@ public class AboutPokemonActivity extends AppCompatActivity {
             editor.apply();
         });
 
-
-
         if (pokemonName == null) {
             throw new RuntimeException("pokemonName was null");
         }
@@ -97,11 +88,6 @@ public class AboutPokemonActivity extends AppCompatActivity {
                 .load("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"+index+".png")
                 .override(600,600)
                 .into(pokemonImage);
-
-
     }
 
-    public String getPokemonName() {
-        return pokemonName;
-    }
 }

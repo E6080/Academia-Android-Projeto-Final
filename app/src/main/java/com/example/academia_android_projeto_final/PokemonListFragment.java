@@ -13,6 +13,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.academia_android_projeto_final.adapters.PokemonAdapter;
+import com.example.academia_android_projeto_final.models.Pokemon;
 import com.example.academia_android_projeto_final.retrofit.APIClient;
 import com.example.academia_android_projeto_final.retrofit.PokemonListResponse;
 import com.example.academia_android_projeto_final.retrofit.RetrofitAPICall;

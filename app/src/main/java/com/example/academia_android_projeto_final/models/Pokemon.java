@@ -1,4 +1,4 @@
-package com.example.academia_android_projeto_final;
+package com.example.academia_android_projeto_final.models;
 
 import androidx.room.Entity;
 
