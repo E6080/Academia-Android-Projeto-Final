@@ -8,10 +8,7 @@
       <entry key="MainActivity">
         <State />
       </entry>
-      <entry key="app">
-        <State />
-      </entry>
-      <entry key="testFavourites()">
+      <entry key="Tests in 'com.example.academia_android_projeto_final'">
         <State>
           <runningDeviceTargetSelectedWithDropDown>
             <Target>
@@ -24,10 +21,10 @@
               </deviceKey>
             </Target>
           </runningDeviceTargetSelectedWithDropDown>
-          <timeTargetWasSelectedWithDropDown value="2024-04-01T08:54:28.503382800Z" />
+          <timeTargetWasSelectedWithDropDown value="2024-04-01T15:07:53.962446300Z" />
         </State>
       </entry>
-      <entry key="testFilterByFavourites()">
+      <entry key="app">
         <State />
       </entry>
     </value>

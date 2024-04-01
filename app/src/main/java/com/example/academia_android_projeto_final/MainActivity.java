@@ -24,8 +24,6 @@ public class MainActivity extends AppCompatActivity {
     public static final String PREFERENCES_FILENAME = "com.example.academia_android_projeto_final.Favourites";
 
     ImageView btnFavourites, home;
-    RecyclerView recyclerView;
-    RecyclerView.Adapter favouriteAdapter;
     RetrofitAPICall apiInterface;
     ArrayList<Pokemon> pokemons;
     ArrayList<Pokemon> favourites;
