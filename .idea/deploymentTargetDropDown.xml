@@ -5,19 +5,29 @@
       <entry key="AppUITest">
         <State />
       </entry>
-      <entry key="ExampleInstrumentedTest">
-        <State />
-      </entry>
       <entry key="MainActivity">
         <State />
       </entry>
       <entry key="app">
         <State />
       </entry>
-      <entry key="testOpenPokemonDetails()">
-        <State />
+      <entry key="testFavourites()">
+        <State>
+          <runningDeviceTargetSelectedWithDropDown>
+            <Target>
+              <type value="RUNNING_DEVICE_TARGET" />
+              <deviceKey>
+                <Key>
+                  <type value="SERIAL_NUMBER" />
+                  <value value="7f68fa9f" />
+                </Key>
+              </deviceKey>
+            </Target>
+          </runningDeviceTargetSelectedWithDropDown>
+          <timeTargetWasSelectedWithDropDown value="2024-04-01T08:54:28.503382800Z" />
+        </State>
       </entry>
-      <entry key="useAppContext()">
+      <entry key="testFilterByFavourites()">
         <State />
       </entry>
     </value>

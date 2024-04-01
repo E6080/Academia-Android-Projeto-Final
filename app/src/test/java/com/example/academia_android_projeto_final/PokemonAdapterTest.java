@@ -26,7 +26,7 @@ public class PokemonAdapterTest {
 
     @Test
     public void testAdapterCorrectData() {
-        ArrayList<Pokemon> adapterList =adapter.getPokemons();
+        ArrayList<Pokemon> adapterList = adapter.getPokemons();
         assertEquals(adapterList.get(0),pokemons.get(0));
         assertEquals(adapterList.get(1),pokemons.get(1));
     }

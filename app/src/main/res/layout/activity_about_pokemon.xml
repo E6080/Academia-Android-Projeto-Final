@@ -32,7 +32,7 @@
         android:layout_marginStart="15dp"
         android:layout_marginEnd="15dp"
         android:layout_marginBottom="15dp"
-        android:background="@color/white"
+        android:background="@color/main_background_details"
         >
 
         <LinearLayout
@@ -80,6 +80,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/weight"
                         android:textSize="14sp"
+                        android:textColor="@color/black"
                         android:layout_marginStart="10dp"/>
                 </LinearLayout>
 
@@ -119,6 +120,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="@string/type"
+                        android:textColor="@color/black"
                         android:textSize="14sp" />
 
                 </LinearLayout>
@@ -146,6 +148,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="end"
                         android:text="@string/height"
+                        android:textColor="@color/black"
                         android:layout_marginEnd="10dp"
                         android:textSize="14sp" />
 
