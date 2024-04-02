@@ -14,6 +14,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.test.core.app.ApplicationProvider;
 
@@ -56,17 +58,16 @@ public class PokemonAdapterTest {
         assertEquals(adapterList.get(1),pokemons.get(1));
     }
 
-//    @Test
-//    public void testViewHolder()
-//    {
-//
-//        View view = LayoutInflater.from(mockContext).inflate(R.layout.list_pokemon, null, false);
-//        PokemonAdapter.ViewHolder viewHolder = new PokemonAdapter.ViewHolder(view);
-//
-//
-//        verify(viewHolder.tvPokemonName).setText("Bulbasaur");
-//        verify(viewHolder.imagePokemon).setImageResource(anyInt());
-//    }
+    @Test
+    public void testViewHolder()
+    {
+
+        LinearLayout view = new LinearLayout(mockContext);
+        PokemonAdapter.ViewHolder viewHolder = adapter.onCreateViewHolder(view,0);
+        adapter.onBindViewHolder(viewHolder,0);
+
+        assertEquals("Bulbasaur",((TextView) viewHolder.itemView.findViewById(R.id.tvPokemonName)).getText());
+    }
 
     @Test
     public void testNumberOfElements() {
