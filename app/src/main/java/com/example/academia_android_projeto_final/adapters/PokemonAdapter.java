@@ -29,10 +29,8 @@ public class PokemonAdapter extends RecyclerView.Adapter<PokemonAdapter.ViewHold
 
     public static class ViewHolder extends RecyclerView.ViewHolder
     {
-
-        TextView tvPokemonName;
-        ImageView imagePokemon;
-
+        public TextView tvPokemonName;
+        public ImageView imagePokemon;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -75,4 +73,5 @@ public class PokemonAdapter extends RecyclerView.Adapter<PokemonAdapter.ViewHold
     public ArrayList<Pokemon> getPokemons() {
         return pokemons;
     }
+
 }

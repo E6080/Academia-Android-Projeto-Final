@@ -81,7 +81,8 @@ public class PokemonInfoFragment extends Fragment {
                 }
 
                 for (int i = 0; i < response.body().moves.size() ; i++) {
-                    moves.add(response.body().moves.get(i).moveDetails.name);
+                    String capitalized = Utils.capitalizeFirstLetter(response.body().moves.get(i).moveDetails.name);
+                    moves.add(capitalized);
                 }
 
                 listView.setAdapter(adapter);

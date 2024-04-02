@@ -63,6 +63,7 @@ dependencies {
     testImplementation("androidx.test:core-ktx:1.5.0")
     testImplementation ("org.mockito:mockito-core:2.25.0")
     testImplementation ("org.mockito:mockito-inline:2.13.0")
+    testImplementation ("org.robolectric:robolectric:4.12")
     androidTestImplementation (libs.androidx.core)
 
 }

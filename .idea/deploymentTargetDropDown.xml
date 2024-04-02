@@ -2,27 +2,11 @@
 <project version="4">
   <component name="deploymentTargetDropDown">
     <value>
-      <entry key="AppUITest">
-        <State />
-      </entry>
       <entry key="MainActivity">
         <State />
       </entry>
       <entry key="Tests in 'com.example.academia_android_projeto_final'">
-        <State>
-          <runningDeviceTargetSelectedWithDropDown>
-            <Target>
-              <type value="RUNNING_DEVICE_TARGET" />
-              <deviceKey>
-                <Key>
-                  <type value="SERIAL_NUMBER" />
-                  <value value="7f68fa9f" />
-                </Key>
-              </deviceKey>
-            </Target>
-          </runningDeviceTargetSelectedWithDropDown>
-          <timeTargetWasSelectedWithDropDown value="2024-04-01T15:07:53.962446300Z" />
-        </State>
+        <State />
       </entry>
       <entry key="app">
         <State />
